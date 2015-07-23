@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <%= side_menu.id %>
+  </td>
+  <td>
+    <%= side_menu.title %>
+  </td>
+  <td>
+    <%= side_menu.link %>
+  </td>
+  <td>
+    <%= side_menu.image.url if side_menu.image %>
+  </td>
+  <td><%= side_menu.show %></td>  
+  <td>
+    <%= link_to t("link.detail"), admin_side_menu_path(side_menu) %>  
+    | <%= link_to t("link.edit"), edit_admin_side_menu_path(side_menu) %>
+    | <%= link_to t("link.delete"), admin_side_menu_path(side_menu), data: {method: :delete, confirm: t("info.confirm_delete")} %>
+  </td>
+</tr>

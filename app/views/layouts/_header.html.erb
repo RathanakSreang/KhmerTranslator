@@ -1,0 +1,30 @@
+<header class="container">
+  <div class="logo">
+    <div class="container">
+      <div class="row">
+                          
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-inverse">
+    <div>
+      <div class="container">
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           </button>         
+        </div>
+        <div class="navbar-collapse collapse">
+           <ul class="nav navbar-nav">
+              <li class="<%= "active" if controller?("") %>">
+                 <%= link_to t("layouts.header.link.all_video"), "" %>
+              </li>            
+           </ul>
+        </div>
+        <!--/.navbar-collapse -->
+      </div>
+    </div>
+  </div>
+</header>

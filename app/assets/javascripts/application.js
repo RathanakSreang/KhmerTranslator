@@ -13,4 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+//= require ckeditor/init
+// = require social-share-button
 //= require_tree .
+function PreviewImage() {
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+  oFReader.onload = function(oFREvent) {
+    document.getElementById("uploadPreview").src = oFREvent.target.result;
+  };
+};
+$(document).ready(ready);
+$(document).on("page:load", ready);
+$(document).on("page:update", ready);

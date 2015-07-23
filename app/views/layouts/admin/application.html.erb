@@ -11,13 +11,12 @@
     <%= favicon_link_tag "icon-logo.png" %>
   </head>
   <body>
-    <%= render "layouts/header" %>    
+    <%= render "layouts/admin/header" %>    
     <div class="container">      
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{(key == "danger")? "danger" : "success"}") %>
       <% end %>    
-      <%= yield %>
-      <%= render "layouts/footer" %>
+      <%= yield %>      
     </div>    
   </body>
 </html>

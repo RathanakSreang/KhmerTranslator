@@ -1,0 +1,33 @@
+<header class="container">  
+  <div class="navbar navbar-inverse nav-head">    
+    <div class="container">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>         
+      </div>
+      <div class="navbar-collapse collapse">
+         <ul class="nav navbar-nav">
+            <li class="<%= "active" if controller?("admin/pages") %>">
+               <%= link_to t("layouts.header.link.pages"), admin_pages_path %>
+            </li>
+            <li class="<%= "active" if controller?("admin/side_menus") %>">
+               <%= link_to t("layouts.header.link.side_menu"), admin_side_menus_path %>
+            </li>
+            <li class="<%= "active" if controller?("admin/sliders") %>">
+               <%= link_to t("layouts.header.link.slider"), admin_sliders_path %>
+            </li>
+            <li class="<%= "active" if controller?("admin/users") %>">
+               <%= link_to t("layouts.header.link.user"), admin_users_path %>
+            </li>
+            <li>
+               <%= link_to t("layouts.header.link.home_page"), root_path %>
+            </li>
+         </ul>
+      </div>
+      <!--/.navbar-collapse -->
+    </div>    
+  </div>
+</header>

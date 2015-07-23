@@ -1,0 +1,24 @@
+<%= form_for [:admin, @page] do |f| %>
+  <%= render "shared/error_message", object: f.object %>
+  <div class="col-md-12">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        <%= f.label :parent_id, t("pages.label.parent_id") %>  
+        <%= f.collection_select :parent_id, Page.order(:name), :id, :name, {include_blank: true}, {class: "form-control"} %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: Page.human_attribute_name(:name) %>
+      </div>    
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.cktext_area :content, autofocus: true, rows: 15, class: "form-control", placeholder: Page.human_attribute_name(:content) %>
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <%= f.submit action, class: "btn btn-primary" %>
+  </div>
+<% end %>
