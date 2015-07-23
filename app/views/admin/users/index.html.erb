@@ -1,0 +1,14 @@
+<div class="col-md-12 well">
+  <%= link_to t("users.label.new"), new_admin_user_path %>
+  <table class="table">
+    <thead>
+      <th><%= t("user.label.id") %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:role) %></th>      
+      <th><%= t("link.link") %></th>      
+    </thead>
+    <tbody>
+      <%= render @users %>
+  </table>
+  <%= will_paginate @users %>
+</div>

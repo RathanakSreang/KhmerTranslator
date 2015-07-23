@@ -1,0 +1,22 @@
+<%= form_for [:admin, @user] do |f| %>
+  <%= render "shared/error_message", object: f.object %>  
+  
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: User.human_attribute_name(:email) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: User.human_attribute_name(:password) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, autofocus: true, class: "form-control", placeholder: User.human_attribute_name(:password_confirmation) %>
+  </div>
+    
+  <div class="form-group">
+    <%= f.select :role, options_for_select([:normal, :admin], f.object.role), {}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.submit action, class: "btn btn-primary" %>
+  </div>
+<% end %>

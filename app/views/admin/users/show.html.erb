@@ -1,0 +1,10 @@
+<div class="col-md-6 col-md-offset-3 well">
+  <legend><center><%= @user.email %></center></legend>
+  <br/>
+  <%= User.human_attribute_name(:email) %>: <%= @user.email %>
+  <br/>
+  <%= User.human_attribute_name(:role) %>: <%= @user.role %>
+  <hr/>
+  <%= link_to t("link.edit"), edit_admin_user_path(@user), class: "btn btn-primary" %>  
+  <%= link_to t("link.delete"), admin_user_path(@user), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger" %>
+</div>

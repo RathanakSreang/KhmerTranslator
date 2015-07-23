@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= page.id %>
+  </td>
+  <td>
+    <%= page.name %>
+  </td>
+  <td><%= page.ancestor_ids %></td>
+  <td><%= page.child_ids %></td>
+  <td>
+    <%= link_to t("link.detail"), admin_page_path(page) %>  
+    | <%= link_to t("link.edit"), edit_admin_page_path(page) %>
+    | <%= link_to t("link.delete"), admin_page_path(page), data: {method: :delete, confirm: t("info.confirm_delete")} %>
+  </td>
+
+</tr>

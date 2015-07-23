@@ -1,0 +1,15 @@
+<div class="col-md-12 well">
+  <%= link_to t("pages.label.new"), new_admin_page_path %>
+  <table class="table">
+    <thead>
+      <th><%= t("page.label.id") %></th>
+      <th><%= Page.human_attribute_name(:name) %></th>
+      <th><%= t("page.label.parent_page_ids") %></th>
+      <th><%= t("page.label.child_page_ids") %></th>
+      <th><%= t("link.link") %></th>      
+    </thead>
+    <tbody>
+      <%= render @pages %>    
+  </table>
+  <%= will_paginate @pages %>  
+</div>

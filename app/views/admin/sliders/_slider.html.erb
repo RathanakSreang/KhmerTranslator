@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <%= slider.id %>
+  </td>
+  <td>
+    <%= slider.logo.url if slider.logo %>
+  </td>
+  <td><%= slider.show %></td>  
+  <td>
+    <%= link_to t("link.detail"), admin_slider_path(slider) %>  
+    | <%= link_to t("link.edit"), edit_admin_slider_path(slider) %>
+    | <%= link_to t("link.delete"), admin_slider_path(slider), data: {method: :delete, confirm: t("info.confirm_delete")} %>
+  </td>
+</tr>

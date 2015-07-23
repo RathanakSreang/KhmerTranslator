@@ -1,0 +1,22 @@
+@import "bootstrap";
+@import "font-awesome";
+$body-color: #D2E9F7;
+$footer-color: #1887D8;
+$nav-color: #147AC9;
+body {
+  background-color: $body-color;
+}
+.logo {
+  min-height: 50px;
+}
+
+footer {
+  background-color: $footer-color;
+  min-height: 100px;
+  padding: 5px;
+}
+
+.nav-head {
+  background-color: $nav-color;
+  border-color: $nav-color;  
+}

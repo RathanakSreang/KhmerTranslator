@@ -21,3 +21,21 @@
 
 en:
   hello: "Hello world"
+  link:
+    edit: "Edit"
+    delete: "Delete"
+    detail: "Detail"
+  action:
+    create: "Create"
+    update: "Update"
+  flash:
+    success_create: "Successful Create"
+    success_update: "Successful Update"
+    success_delete: "Successful Delete"
+    fail_create: "Fail Create"
+    fail_update: "Fail Update"
+  info:
+    confirm_delete: "Are you sure?"
+  sheared:
+    label:
+      error: "Errors"

@@ -1,0 +1,12 @@
+<div class="col-md-10 col-md-offset-1 well">
+  <legend><center><%= t("slider.label.id") %>: <%= @slider.id %></center></legend>
+  <br/>
+  <div class="col-md-12">
+    <%= image_tag @slider.logo.url, class: "img-responsive" %>
+  </div>
+  <br/>
+  <%= Slider.human_attribute_name(:show) %>: <%= @slider.show %>
+  <hr/>
+  <%= link_to t("link.edit"), edit_admin_slider_path(@slider), class: "btn btn-primary" %>  
+  <%= link_to t("link.delete"), admin_slider_path(@slider), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger" %>
+</div>

@@ -1,0 +1,16 @@
+<div class="col-md-12 well">
+  <%= link_to t("side_menu.label.new"), new_admin_side_menu_path %>
+  <table class="table">
+    <thead>
+      <th><%= t("side_menu.label.id") %></th>
+      <th><%= SideMenu.human_attribute_name(:title) %></th>
+      <th><%= SideMenu.human_attribute_name(:link) %></th>
+      <th><%= SideMenu.human_attribute_name(:image) %></th>
+      <th><%= Slider.human_attribute_name(:show) %></th>      
+      <th><%= t("link.link") %></th>      
+    </thead>
+    <tbody>
+      <%= render @side_menus %>
+  </table>
+  <%= will_paginate @side_menus %>
+</div>
