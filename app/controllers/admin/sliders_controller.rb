@@ -1,5 +1,7 @@
 class Admin::SlidersController < ApplicationController
+  before_action :authenticate_user!
   layout "admin/application"
+  
   before_action :load_slider, only: [:show, :edit, :update]
 
   def index

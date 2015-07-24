@@ -1,16 +1,14 @@
 <div class="col-md-10 col-md-offset-1 well">
-  <legend><center><%= t("side_menu.label.id") %>: <%= @side_menu.id %></center></legend>
-  <br/>
-  <%= SideMenu.human_attribute_name(:title) %>: <%= @side_menu.title %>
-  <br/>
+  <legend><center><%= @side_menu.title %></center></legend>  
+  <div class="col-md-12 well">
+    <center><%= image_tag @side_menu.image.url, class: "img-responsive" %></center>
+  </div>  
+  <hr/>
   <%= SideMenu.human_attribute_name(:link) %>: <%= @side_menu.link %>
   <br/>
-  <div class="col-md-12">
-    <%= image_tag @side_menu.image.url, class: "img-responsive" %>
-  </div>
+  <input type="checkbox" <%= @side_menu.show ? "checked" : "" %> disabled><%= SideMenu.human_attribute_name(:show) %>  
   <br/>
-  <%= SideMenu.human_attribute_name(:show) %>: <%= @side_menu.show %>
-  <hr/>
+  <%= link_to t("link.back"), admin_side_menus_path, class: "btn btn-info" %>
   <%= link_to t("link.edit"), edit_admin_side_menu_path(@side_menu), class: "btn btn-primary" %>  
   <%= link_to t("link.delete"), admin_side_menu_path(@side_menu), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger" %>
 </div>

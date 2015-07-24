@@ -3,9 +3,9 @@
     <%= slider.id %>
   </td>
   <td>
-    <%= slider.logo.url if slider.logo %>
+    <%= (truncate slider.logo.url, length: 50) if slider.logo %>
   </td>
-  <td><%= slider.show %></td>  
+  <td><input type="checkbox" <%= slider.show ? "checked" : "" %> disabled></td>
   <td>
     <%= link_to t("link.detail"), admin_slider_path(slider) %>  
     | <%= link_to t("link.edit"), edit_admin_slider_path(slider) %>

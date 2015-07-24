@@ -3,15 +3,15 @@
     <%= side_menu.id %>
   </td>
   <td>
-    <%= side_menu.title %>
+    <%= truncate side_menu.title, length: 30 %>
   </td>
   <td>
-    <%= side_menu.link %>
+    <%= truncate side_menu.link, length: 30 %>
   </td>
   <td>
-    <%= side_menu.image.url if side_menu.image %>
+    <%= (truncate side_menu.image.url, length: 30) if side_menu.image %>
   </td>
-  <td><%= side_menu.show %></td>  
+  <td><input type="checkbox" <%= side_menu.show ? "checked" : "" %> disabled></td>
   <td>
     <%= link_to t("link.detail"), admin_side_menu_path(side_menu) %>  
     | <%= link_to t("link.edit"), edit_admin_side_menu_path(side_menu) %>

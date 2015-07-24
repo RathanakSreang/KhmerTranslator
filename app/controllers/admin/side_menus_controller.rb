@@ -1,5 +1,7 @@
 class Admin::SideMenusController < ApplicationController
+  before_action :authenticate_user!
   layout "admin/application"
+  
   before_action :load_side_menu, only: [:show, :edit, :update]
 
   def index

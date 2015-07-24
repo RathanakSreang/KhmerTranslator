@@ -1,24 +1,27 @@
 <div class="col-md-10 col-md-offset-1 well">
-  <legend><center><%= @page.name %></center></legend>
+  <legend><center><%= @page.title %>(<%= @page.name %>)</center></legend>
+  <%= simple_format @page.content %>  
   <small>
     <em>
       <% unless @page.root? %>
         <%= t("page.label.parent_pages") %> 
         <% @page.ancestors.each do |parent| %>
-        <%= link_to parent.name, [:admin, parent] %>
+        , <%= link_to parent.name, [:admin, parent] %>
         <% end %>
       <% end %>
       <% if @page.has_children? %>
+        <br/>
         <%= t("page.label.children_pages") %> 
-        <% @page.ancestors.each do |parent| %>
-        <%= link_to parent.name, [:admin, parent] %>
+        <% @page.children.each do |child| %>
+        , <%= link_to child.name, [:admin, child] %>
         <% end %>
       <% end %>
     </em>
   </small>
-  <br/>  
-  <%= simple_format @page.content %>
-  <hr/>
+  <br/>
+  <input type="checkbox" <%= @page.show ? "checked" : "" %> disabled><%= Page.human_attribute_name(:show) %>  
+  <br/>
+  <%= link_to t("link.back"), admin_pages_path, class: "btn btn-info" %>
   <%= link_to t("link.edit"), edit_admin_page_path(@page), class: "btn btn-primary" %>  
   <%= link_to t("link.delete"), admin_page_path(@page), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger" %>
 </div>
