@@ -1,5 +1,7 @@
 class Admin::PagesController < ApplicationController
+  before_action :authenticate_user!
   layout "admin/application"
+  
   before_action :load_page, only: [:show, :edit, :update]
 
   def index
@@ -46,7 +48,7 @@ class Admin::PagesController < ApplicationController
 
   private
   def page_params
-    params.require(:page).permit :id, :name, :content, :parent_id
+    params.require(:page).permit :id, :title, :name, :content, :show, :parent_id
   end
   def load_page
     @page = Page.find params[:id]

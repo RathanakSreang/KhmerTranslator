@@ -1,6 +1,8 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_user!
   layout "admin/application"
   before_action :load_user, only: [:show, :edit, :update]
+  before_action :admin_user, except: [:show, :index]
 
   def index
     @users = User.order("created_at").paginate page: params[:page], per_page: 7
@@ -28,13 +30,23 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes user_param
-      flash[:success] = t("flash.success_update")
-      redirect_to [:admin, @user]
+    if params[:user][:password].present?
+      if @user.update_attributes user_param
+        flash[:success] = t("flash.success_update")
+        redirect_to [:admin, @user]
+      else
+        flash.now[:danger] = t("flash.fail_update")
+        render "edit"
+      end
     else
-      flash.now[:danger] = t("flash.fail_update")
-      render "edit"
-    end
+      if @user.update_without_password user_param
+        flash[:success] = t("flash.success_update")
+        redirect_to [:admin, @user]
+      else
+        flash.now[:danger] = t("flash.fail_update")
+        render "edit"
+      end
+    end    
   end
 
   def destroy
@@ -47,6 +59,10 @@ class Admin::UsersController < ApplicationController
   private
   def load_user
     @user = User.find params[:id]
+  end
+
+  def admin_user
+    redirect_to admin_users_path unless current_user.admin?
   end
 
   def user_param
