@@ -1,12 +1,24 @@
-<header class="container">
+<header>
   <div class="logo">
     <div class="container">
-      <div class="row">
-                          
-      </div>
+        <div class="col-xs-12">
+          <span class="pull-right icon-flag">
+            <%= link_to locale: "kh" do %>
+              <%= image_tag "camicon.png" %>
+            <% end %>
+            <%= link_to locale: "en" do %>
+              <%= image_tag "englishicon.png" %>
+            <% end %>
+          </span>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">          
+          <div class="image-logo">
+            <%= image_tag "logo.png", class: "img-responsive" %>
+          </div>
+        </div>
     </div>
   </div>
-  <div class="navbar navbar-inverse">
+  <div class="navbar navbar-custom">
     <div>
       <div class="container">
         <div class="navbar-header">
@@ -15,16 +27,64 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
            </button>         
-        </div>
+        </div>        
         <div class="navbar-collapse collapse">
            <ul class="nav navbar-nav">
-              <li class="<%= "active" if controller?("") %>">
-                 <%= link_to t("layouts.header.link.all_video"), "" %>
-              </li>            
+              <% @menu_pages.each do |page| %>                
+                <li class="dropdown <%= "active" if (@page && @page.root == page) %>">
+                  <% unless page.has_children? %>
+                    <%= link_to page.name, page %>
+                  <% else %>
+                    <%= link_to page, "data-toggle" => "dropdown", class: "dropdown-toggle" do %>
+                    <%= page.name %> <b class="caret"></b>
+                    <% end %>
+                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                      <%= render "shared/submenulist", sub_menus: page.root.descendants.arrange %>                      
+                    </ul>
+                  <% end %>
+                </li>
+              <% end %>
            </ul>
         </div>
         <!--/.navbar-collapse -->
       </div>
     </div>
-  </div>
+  </div>  
+  <div class="container slider">
+    <div class="col-md-12">
+    <center>
+      <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-slider" data-slide-to="1"></li>
+          <li data-target="#carousel-slider" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">          
+          <% if @sliders.any? %>
+            <% @sliders.each do |slider| %>
+              <div class="item <%= "active" if @sliders.first == slider %>">
+                <%= image_tag slider.logo.url, class: "img-responsive slide-image" %>
+                <div class="carousel-caption">
+                  <h3><%= slider.title %></h3>
+                  <p><%= slider.description %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="item active">
+              <%= image_tag "slider.png", class: "img-responsive slide-image" %>
+            </div>            
+          <% end %>
+        </div>
+
+        <a class="left carousel-control" href="#carousel-slider" role="button" data-slide="prev">
+          <span class="fa fa-angle-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-slider" role="button" data-slide="next">
+          <span class="fa fa-angle-right" aria-hidden="true"></span>
+        </a>
+      </div>
+    </center>
+    </div>  
+  </div>  
 </header>

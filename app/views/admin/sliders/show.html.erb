@@ -1,7 +1,9 @@
 <div class="col-md-10 col-md-offset-1 well">
   <div class="col-md-12 well">
-    <%= image_tag @slider.logo.url, class: "img-responsive" %>
+    <legend><center><%= @slider.title %></center></legend>
+    <center><%= image_tag @slider.logo.url, class: "img-responsive" %></center>
   </div>
+  <p><%= @slider.description %></p>
   <input type="checkbox" <%= @slider.show ? "checked" : "" %> disabled>
   <%= Slider.human_attribute_name(:show) %>
   <br/>

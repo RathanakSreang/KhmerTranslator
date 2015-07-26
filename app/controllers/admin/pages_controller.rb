@@ -5,7 +5,7 @@ class Admin::PagesController < ApplicationController
   before_action :load_page, only: [:show, :edit, :update]
 
   def index
-    @pages = Page.order(:name).paginate page: params[:page], per_page: 7
+    @pages = Page.order(:created_at).paginate page: params[:page], per_page: 7
   end
 
   def new
@@ -40,7 +40,7 @@ class Admin::PagesController < ApplicationController
   end
 
   def destroy
-    @page = Page.find params[:id]
+    @page = Page.friendly.find params[:id]
     @page.destroy
     flash[:success] = t("flash.success_delete")
     redirect_to admin_pages_path
@@ -51,6 +51,6 @@ class Admin::PagesController < ApplicationController
     params.require(:page).permit :id, :title, :name, :content, :show, :parent_id
   end
   def load_page
-    @page = Page.find params[:id]
+    @page = Page.friendly.find params[:id]
   end
 end

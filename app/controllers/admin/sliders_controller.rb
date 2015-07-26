@@ -48,7 +48,7 @@ class Admin::SlidersController < ApplicationController
 
   private
   def slider_params
-    params.require(:slider).permit :id, :logo, :logo_cache, :show
+    params.require(:slider).permit :id, :logo, :logo_cache, :show, :title, :description
   end
   def load_slider
     @slider = Slider.find params[:id]

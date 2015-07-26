@@ -4,14 +4,14 @@
   <small>
     <em>
       <% unless @page.root? %>
-        <%= t("page.label.parent_pages") %> 
+        <%= t("pages.label.parent_pages") %> 
         <% @page.ancestors.each do |parent| %>
         , <%= link_to parent.name, [:admin, parent] %>
         <% end %>
       <% end %>
       <% if @page.has_children? %>
         <br/>
-        <%= t("page.label.children_pages") %> 
+        <%= t("pages.label.children_pages") %> 
         <% @page.children.each do |child| %>
         , <%= link_to child.name, [:admin, child] %>
         <% end %>
@@ -22,6 +22,6 @@
   <input type="checkbox" <%= @page.show ? "checked" : "" %> disabled><%= Page.human_attribute_name(:show) %>  
   <br/>
   <%= link_to t("link.back"), admin_pages_path, class: "btn btn-info" %>
-  <%= link_to t("link.edit"), edit_admin_page_path(@page), class: "btn btn-primary" %>  
+  <%= link_to t("link.edit"), edit_admin_page_path(@page), class: "btn btn-primary", "data-no-turbolink" => true %>  
   <%= link_to t("link.delete"), admin_page_path(@page), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger" %>
 </div>

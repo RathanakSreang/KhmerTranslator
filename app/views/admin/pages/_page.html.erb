@@ -13,7 +13,7 @@
   <td><input type="checkbox" <%= page.show ? "checked" : "" %> disabled></td>
   <td>
     <%= link_to t("link.detail"), admin_page_path(page) %>  
-    | <%= link_to t("link.edit"), edit_admin_page_path(page) %>
+    | <%= link_to t("link.edit"), edit_admin_page_path(page), "data-no-turbolink" => true %>
     | <%= link_to t("link.delete"), admin_page_path(page), data: {method: :delete, confirm: t("info.confirm_delete")} %>
   </td>
 

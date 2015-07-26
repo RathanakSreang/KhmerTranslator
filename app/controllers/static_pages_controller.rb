@@ -1,10 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-  end
-
-  def help
-  end
-
-  def about
+    @page = Page.status_show.first
   end
 end

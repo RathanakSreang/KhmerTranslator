@@ -1,24 +1,29 @@
 @import "bootstrap";
 @import "font-awesome";
-$body-color: #D2E9F7;
-$footer-color: #1887D8;
-$nav-color: #147AC9;
+$body-color: #E9EAED;
+$footer-color: #1887d8;
+$nav-color: #4A96AD;
 body {
   background-color: $body-color;
 }
 .logo {
-  min-height: 50px;
+  min-height: 80px;
+  background-color: #FFF;
 }
 
 footer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
   background-color: $footer-color;
-  min-height: 100px;
-  padding: 5px;
+  min-height: 80px;
+  padding: 15px;
+  color: #fff;
 }
 
 .nav-head {
-  background-color: $nav-color;
-  border-color: $nav-color;  
+  // background-color: $nav-color;
+  // border-color: $nav-color;  
 }
 
 legend, h1, h2, h3, h4, h5, h6, a, p {
@@ -27,4 +32,102 @@ legend, h1, h2, h3, h4, h5, h6, a, p {
 
 .right-nav {
   margin-right: 5px;
+}
+
+.slider {
+  margin-top: -10px;
+}
+
+.body-app {
+  margin-top: 10px;
+  border-top: 5px #ED5F17 solid;
+}
+
+.reset-padding {
+  padding-left: 0;
+  padding-right: 0;
+}  
+.main-info {  
+  padding: 15px;
+  background-color: #FFF;
+}
+
+.add-padding {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.panel {
+  background-color: #FFF;  
+  .custom-heading {
+    text-indent: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px rgb(216, 216, 216);
+    color: rgb(240, 125, 0);
+    padding-bottom: 5px;
+    font-size: 18px;
+    border-bottom: 5px red solid;
+    height: 30px;
+  }
+}
+
+.well {
+  background-color: #fff;
+}
+
+.icon-flag {
+  margin-top: 5px;
+}
+
+@media(max-width:770px) {
+  .side-bar {
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+}
+@media(min-width:768px) {
+  .side-bar {
+    padding-right: 0;
+    padding-left: 10;
+    margin-top: 10px;
+  }
+}
+
+.fa-angle-right, .fa-angle-left {
+  position: absolute;
+  top: 50%;
+  font-size: 60px; 
+}
+
+.caret-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 4px solid;
+    
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+//error page
+.error-page-404 {
+  border-top: 5px #f45145 solid;
+  background-color: #FFF;
+  .error-404-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    h1 {
+      font-size: 47px;
+    }
+    color: #f45145;
+  }
+  .error-content {
+    color: #656e7f;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
 }

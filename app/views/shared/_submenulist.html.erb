@@ -1,0 +1,14 @@
+<% sub_menus.each do |page, children| %>
+  <% unless page.has_children? %>
+    <li>
+    <%= link_to page.name, page %>
+    </li>
+  <% else %>
+    <li class="dropdown-submenu">      
+      <%= link_to page.name, "#" %>
+      <ul class="dropdown-menu">
+        <%= render "shared/submenulist", sub_menus: children if children.present? %>
+      </ul>
+    </li>
+  <% end %>
+<% end %>

@@ -1,8 +1,8 @@
 <div class="col-md-12 well">
   <%= link_to t("side_menu.label.new"), new_admin_side_menu_path %>
   <table class="table">
-    <thead>
-      <th><%= t("side_menu.label.id") %></th>
+    <thead>      
+      <th><%= SideMenu.human_attribute_name(:id) %></th>
       <th><%= SideMenu.human_attribute_name(:title) %></th>
       <th><%= SideMenu.human_attribute_name(:link) %></th>
       <th><%= SideMenu.human_attribute_name(:image) %></th>

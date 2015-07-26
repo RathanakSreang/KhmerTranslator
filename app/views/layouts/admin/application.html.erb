@@ -4,14 +4,26 @@
     <title><%= full_title yield(:title) %></title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <%= javascript_include_tag "admin", "data-turbolinks-track" => true %>    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= render "layouts/shim" %>
     <%= favicon_link_tag "icon-logo.png" %>
   </head>
   <body>
-    <%= render "layouts/admin/header" %>    
+    <%= render "layouts/admin/header" %>
+    <div class="container">
+      <div class="col-xs-12">
+        <span class="pull-right icon-flag">
+          <%= link_to locale: "kh" do %>
+            <%= image_tag "camicon.png" %>
+          <% end %>
+          <%= link_to locale: "en" do %>
+            <%= image_tag "englishicon.png" %>
+          <% end %>
+        </span>
+      </div>      
+    </div>
     <div class="container">      
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{(key == "danger")? "danger" : "success"}") %>

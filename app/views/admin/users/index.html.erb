@@ -1,8 +1,8 @@
 <div class="col-md-12 well">
-  <%= link_to t("users.label.new"), new_admin_user_path %>
+  <%= (link_to t("users.label.new"), new_admin_user_path) if current_user.admin? %>
   <table class="table">
-    <thead>
-      <th><%= t("user.label.id") %></th>
+    <thead>      
+      <th><%= User.human_attribute_name(:id) %></th>
       <th><%= User.human_attribute_name(:email) %></th>
       <th><%= User.human_attribute_name(:role) %></th>      
       <th><%= t("link.link") %></th>      

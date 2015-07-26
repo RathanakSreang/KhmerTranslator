@@ -1,0 +1,8 @@
+<% provide :title, @page.title %>
+<% unless @page.root? %>
+  <% @page.ancestors.each do |ancestor| %>
+    <%= link_to ancestor.name, ancestor %> &gt;
+  <% end %>
+  <hr/>
+<% end %>
+<%= sanitize @page.content %>

@@ -20,15 +20,26 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_title: "Khmer Translate"
+  page_error:
+    head_404: "Oops! That page can’t be found."
+    body_404: "It looks like nothing was found at this location. Maybe try one of the links."
+    head_422: "Oops! The change you wanted was rejected."
+    body_422: "It looks like you was not allow to view this location. Maybe try one of other links."
+    head_500: "We're sorry, but something went wrong."
+    body_500: "It looks like we have problems on this link. Maybe try one of other links."
   link:
     edit: "Edit"
     delete: "Delete"
     detail: "Detail"
     back: "Back"
+    link: "Link"
+    login: "Log In"
   action:
     create: "Create"
     update: "Update"
+  devise:
+    login: "Log In"
   flash:
     success_create: "Successful Create"
     success_update: "Successful Update"
@@ -40,3 +51,65 @@ en:
   sheared:
     label:
       error: "Errors"
+  layouts:
+    footer:
+      copy_right: "Copy Right"
+      host: "Host"
+    header:
+      link:
+        pages: "Pages"
+        side_menu: "Side Menu"
+        slider: "Slider"
+        user: "Users"
+        go_to_home_page: "Go To Home Page"
+        sign_out: "Sign Out"
+  pages:
+    label:
+      new: "New Page"      
+      parent_page_ids: "Parent Page ID"
+      child_page_ids: "Children Page ID"
+      parent_id: "Parent ID"
+      show: "Show"
+      hide: "Hide"
+      edit: "Edit"
+      children_pages: "Children Pages"
+      parent_pages: "Parent Pages"
+  side_menu:
+    label:
+      new: "New Side Menu"      
+      edit: "Edit Side Menu"
+  slider:
+    label:
+      new: "New Slider"      
+      edit: "Edit Slider"
+  users:
+    label:
+      new: "New User"
+      edit: "Edit User"
+  admin:
+    header:
+      label:
+        admin_page: "Admin Page"
+  will_paginate:
+    previous_label: "Previous"
+    next_label: "Next"
+  activerecord:
+    attributes:
+      page:
+        id: "Id"
+        title: "Title"
+        name: "Name"
+      side_menu:
+        id: "Id"
+        title: "Title"
+        link: "Link"
+      slider:
+        id: "Id"
+        title: "Title"
+        description: "Description"
+      user:
+        id: "Id"
+        email: "Email"
+        role: "Role"
+        password: "Password"
+        password_confirmation: "Password Confirmation"

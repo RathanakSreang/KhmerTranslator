@@ -3,7 +3,10 @@
     <%= slider.id %>
   </td>
   <td>
-    <%= (truncate slider.logo.url, length: 50) if slider.logo %>
+    <%= (truncate slider.logo.url, length: 20) if slider.logo %>
+  </td>
+  <td>
+    <%= truncate slider.title, length: 50 %>
   </td>
   <td><input type="checkbox" <%= slider.show ? "checked" : "" %> disabled></td>
   <td>

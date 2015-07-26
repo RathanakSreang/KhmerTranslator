@@ -10,13 +10,21 @@
     <%= f.file_field :logo, class: "form-control", id: "uploadImage", onchange:"PreviewImage();", accept: "image/png,image/gif,image/jpeg" %>
     <%= f.hidden_field :logo_cache %>
   </div>
-    
+  
+  <div class="form-group">
+    <%= f.text_field :title, class: "form-control", placeholder: Slider.human_attribute_name(:title) %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.text_area :description, rows: 5, class: "form-control", placeholder: Slider.human_attribute_name(:description) %>
+  </div>
+  
   <div class="form-group">
     <%= f.label :show, class: "radio-inline", value: true do %>
-      <%= f.radio_button :show, true %> <%= t("slider.label.show") %>
+      <%= f.radio_button :show, true %> <%= t("pages.label.show") %>
     <% end%>
     <%= f.label :show, class: "radio-inline", value: false do %>
-      <%= f.radio_button :show, false %> <%= t("slider.label.hide") %>
+      <%= f.radio_button :show, false %> <%= t("pages.label.hide") %>
     <% end%>
   </div>
   <div class="form-group">    

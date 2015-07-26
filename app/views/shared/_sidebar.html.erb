@@ -1,0 +1,12 @@
+<% @sidebars.each do |side_menu| %>
+  <div class="panel">
+    <div class="custom-heading">
+      <%= side_menu.title %>
+    </div>    
+    <div class="side-menu-image">
+      <%= link_to side_menu.link, class: "" do %>
+        <center><%= image_tag side_menu.image.url, class: "img-responsive" %></center>
+      <% end %>
+    </div>
+  </div>
+<% end %>

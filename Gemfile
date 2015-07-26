@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
 gem "friendly_id"
-gem "social-share-button"
 gem "globalize"
 gem "ancestry"
 gem "devise"

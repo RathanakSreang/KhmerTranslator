@@ -1,9 +1,10 @@
 <div class="col-md-12 well">
   <%= link_to t("slider.label.new"), new_admin_slider_path %>
   <table class="table">
-    <thead>
-      <th><%= t("slider.label.id") %></th>
+    <thead>      
+      <th><%= Slider.human_attribute_name(:id) %></th>
       <th><%= Slider.human_attribute_name(:logo) %></th>
+      <th><%= Slider.human_attribute_name(:title) %></th>
       <th><%= Slider.human_attribute_name(:show) %></th>      
       <th><%= t("link.link") %></th>      
     </thead>

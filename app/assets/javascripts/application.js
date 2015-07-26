@@ -14,9 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require ckeditor/init
-// = require social-share-button
-//= require_tree .
+
+
 function PreviewImage() {
   var oFReader = new FileReader();
   oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
@@ -25,6 +24,24 @@ function PreviewImage() {
     document.getElementById("uploadPreview").src = oFREvent.target.result;
   };
 };
+var drop = function(){  
+$(".dropdown").hover(            
+        function() {
+            $('.multi-level', this).stop( true, true ).fadeIn("fast");
+            $(this).toggleClass('open');
+            $('b', this).toggleClass("caret caret-up");
+        },        
+        function() {
+            $('.multi-level', this).stop( true, true ).fadeOut("fast");
+            $(this).toggleClass('open');
+            $('b', this).toggleClass("caret caret-up");                
+        });
+};
+var ready = function() {
+ drop();
+}
 $(document).ready(ready);
 $(document).on("page:load", ready);
 $(document).on("page:update", ready);
+
+

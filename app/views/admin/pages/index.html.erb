@@ -1,12 +1,12 @@
 <div class="col-md-12 well">
-  <%= link_to t("pages.label.new"), new_admin_page_path %>
+  <%= link_to t("pages.label.new"), new_admin_page_path, "data-no-turbolink" => true %>
   <table class="table">
-    <thead>
-      <th><%= t("page.label.id") %></th>
+    <thead>      
+      <th><%= Page.human_attribute_name(:id) %></th>
       <th><%= Page.human_attribute_name(:name) %></th>
       <th><%= Page.human_attribute_name(:title) %></th>
-      <th><%= t("page.label.parent_page_ids") %></th>
-      <th><%= t("page.label.child_page_ids") %></th>
+      <th><%= t("pages.label.parent_page_ids") %></th>
+      <th><%= t("pages.label.child_page_ids") %></th>
       <th><%= Page.human_attribute_name(:show) %></th>
       <th><%= t("link.link") %></th>      
     </thead>

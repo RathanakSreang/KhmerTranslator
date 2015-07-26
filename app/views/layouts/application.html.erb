@@ -3,8 +3,7 @@
   <head>
     <title><%= full_title yield(:title) %></title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= render "layouts/shim" %>
@@ -12,12 +11,23 @@
   </head>
   <body>
     <%= render "layouts/header" %>    
-    <div class="container">      
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{(key == "danger")? "danger" : "success"}") %>
-      <% end %>    
-      <%= yield %>
-      <%= render "layouts/footer" %>
-    </div>    
+    <div class="container add-padding">
+      <div class="col-md-12 body-app reset-padding">
+        <div class="col-md-8 main-info">
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{(key == "danger")? "danger" : "success"}") %>
+          <% end %>    
+          <%= yield %>
+        </div>
+        <div class="col-md-4 side-bar">
+          <%= render "shared/sidebar" %>
+        </div>        
+      </div>
+    </div>
+    <div class="container">
+      <div class="col-md-12">
+        <%= render "layouts/footer" %>
+      </div>
+    </div>
   </body>
 </html>
